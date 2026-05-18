@@ -1,0 +1,25 @@
+# Base de datos (generada en runtime)
+backend/database.db
+
+# Bytecode Python
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Dependencias Node
+frontend/node_modules/
+
+# Build de producción
+frontend/dist/
+
+# Logs
+*.log
+
+# Variables de entorno
+.env
+.env.*
