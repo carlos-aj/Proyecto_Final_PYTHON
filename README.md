@@ -16,6 +16,8 @@ Aplicación web para gestionar ingresos y gastos personales con estadísticas y 
 | Node.js     | 18            | `node --version` |
 | pnpm        | 8             | `pnpm --version` |
 
+> **Python 3.13**: compatible, pero pip necesitará descargar una versión de pydantic ≥ 2.9 (lo hace automáticamente). Si prefieres evitar posibles problemas, usa **Python 3.11 o 3.12**.
+
 > Si no tienes pnpm: `npm install -g pnpm`
 
 ---
