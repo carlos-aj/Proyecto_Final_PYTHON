@@ -9,22 +9,39 @@ Aplicación web para gestionar ingresos y gastos personales con estadísticas y 
 
 ## Requisitos previos
 
-| Herramienta | Versión mínima | Verificar |
-|-------------|---------------|-----------|
-| Python      | 3.11          | `python3 --version` |
-| pip         | incluido      | `pip3 --version` |
-| Node.js     | 18            | `node --version` |
-| pnpm        | 8             | `pnpm --version` |
+### Python (3.11 o superior)
 
-> **Python 3.13**: compatible, pero pip necesitará descargar una versión de pydantic ≥ 2.9 (lo hace automáticamente). Si prefieres evitar posibles problemas, usa **Python 3.11 o 3.12**.
+```bash
+python3 --version
+```
 
-> Si no tienes pnpm: `npm install -g pnpm`
+> Python 3.13 es compatible. Si usas una versión anterior a 3.11 descarga el instalador desde [python.org](https://www.python.org/downloads/).
+
+### Node.js (18 o superior)
+
+```bash
+node --version
+```
+
+> Si no tienes Node.js, descarga el instalador LTS desde [nodejs.org](https://nodejs.org) y ejecútalo.  
+> En macOS con Homebrew: `brew install node`
+
+### pnpm (gestor de paquetes para el frontend)
+
+```bash
+pnpm --version
+```
+
+> Si no tienes pnpm, instálalo una vez con:
+> ```bash
+> npm install -g pnpm
+> ```
 
 ---
 
 ## Instalación y arranque
 
-### 1. Clonar / descomprimir el proyecto
+### 1. Clonar / descomprimir el proyecto y entrar en la carpeta
 
 ```bash
 cd proyecto_final_PYTHON
@@ -32,29 +49,44 @@ cd proyecto_final_PYTHON
 
 ### 2. Backend
 
+Abre una terminal, entra en `backend` e instala las dependencias:
+
 ```bash
 cd backend
-
-# Instalar dependencias Python
 pip3 install -r requirements.txt
+```
 
-# Arrancar el servidor (queda escuchando en http://localhost:8000)
+Arranca el servidor:
+
+```bash
 uvicorn app.main:app --reload
 ```
 
-> La base de datos `database.db` se crea automáticamente al primer arranque.
+El backend quedará escuchando en **http://localhost:8000**.  
+La base de datos `database.db` se crea automáticamente al primer arranque.
+
+> **Error "Address already in use"**: el puerto 8000 ya está ocupado. Libéralo con:
+> ```bash
+> kill -9 $(lsof -t -i:8000)
+> ```
+> Y vuelve a ejecutar `uvicorn`.
 
 ### 3. Frontend (en otra terminal)
 
+Abre una **nueva** terminal, entra en `frontend` e instala las dependencias:
+
 ```bash
 cd frontend
-
-# Instalar dependencias Node
 pnpm install
+```
 
-# Arrancar el servidor de desarrollo (http://localhost:5173)
+Arranca el servidor de desarrollo:
+
+```bash
 pnpm run dev
 ```
+
+El frontend quedará disponible en **http://localhost:5173**.
 
 ---
 
