@@ -49,12 +49,21 @@ cd proyecto_final_PYTHON
 
 ### 2. Backend
 
-Abre una terminal, entra en `backend` e instala las dependencias:
+Abre una terminal, entra en la carpeta `backend` **desde la raíz del proyecto**:
 
 ```bash
-cd backend
-pip3 install -r requirements.txt
+cd proyecto_final_PYTHON/backend
 ```
+
+Crea un entorno virtual e instala las dependencias:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+> **macOS**: el sistema bloquea `pip3` fuera de un entorno virtual (PEP 668). El entorno virtual (`venv`) es obligatorio.
 
 Arranca el servidor:
 
@@ -64,6 +73,13 @@ uvicorn app.main:app --reload
 
 El backend quedará escuchando en **http://localhost:8000**.  
 La base de datos `database.db` se crea automáticamente al primer arranque.
+
+> **La próxima vez que abras el proyecto** recuerda activar el entorno antes de arrancar:
+> ```bash
+> cd proyecto_final_PYTHON/backend
+> source venv/bin/activate
+> uvicorn app.main:app --reload
+> ```
 
 > **Error "Address already in use"**: el puerto 8000 ya está ocupado. Libéralo con:
 > ```bash
